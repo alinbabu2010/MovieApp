@@ -1,4 +1,4 @@
-package com.jetpack.movieapp.navigation
+package com.jetpack.movieapp.ui.navigation
 
 enum class MovieScreens {
     HomeScreen,

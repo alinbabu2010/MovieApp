@@ -1,11 +1,11 @@
-package com.jetpack.movieapp
+package com.jetpack.movieapp.ui.activites
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.jetpack.movieapp.navigation.MovieNavigation
+import com.jetpack.movieapp.ui.navigation.MovieNavigation
 import com.jetpack.movieapp.ui.theme.MovieAppTheme
 
 class MainActivity : ComponentActivity() {

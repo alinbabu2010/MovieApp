@@ -1,4 +1,4 @@
-package com.jetpack.movieapp.screens
+package com.jetpack.movieapp.ui.screens
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*

@@ -1,4 +1,4 @@
-package com.jetpack.movieapp.screens.home
+package com.jetpack.movieapp.ui.screens.home
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.jetpack.movieapp.navigation.MovieScreens
+import com.jetpack.movieapp.ui.navigation.MovieScreens
 
 @Composable
 fun HomeScreen(navController: NavController) {

@@ -22,7 +22,7 @@ import com.jetpack.movieapp.navigation.MovieScreens
 fun HomeScreen(navController: NavController) {
     Scaffold(topBar = {
         TopAppBar(
-            backgroundColor = Color.Magenta,
+            backgroundColor = Color.Cyan,
             elevation = 5.dp
         ) {
             Text(text = "Movies")

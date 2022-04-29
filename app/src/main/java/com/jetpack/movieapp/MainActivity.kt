@@ -56,8 +56,10 @@ val moviesList = listOf(
 
 @Composable
 fun MainContent(movieList: List<String> = moviesList) {
-    Column(modifier = Modifier.padding(12.dp)) {
-        LazyColumn {
+    Column(
+        modifier = Modifier.padding(start = 12.dp, end = 12.dp)
+    ) {
+        LazyColumn(Modifier.padding(top = 4.dp)) {
             items(items = movieList) {
                 MovieRow(movie = it) { movie ->
                     Log.d("TAG", "MainContent: $movie")
@@ -75,29 +77,29 @@ fun MovieRow(movie: String, onItemClicked: (String) -> Unit) {
         modifier = Modifier
             .padding(4.dp)
             .fillMaxWidth()
-            .height(130.dp)
-            .clickable {
-                onItemClicked(movie)
-            },
+            .height(130.dp),
         shape = RoundedCornerShape(CornerSize(16.dp)),
         elevation = 6.dp
     ) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Start
-        ) {
-            Surface(
-                modifier = Modifier
-                    .padding(12.dp)
-                    .size(100.dp),
-                shape = RectangleShape,
-                elevation = 4.dp
+        Box(Modifier.clickable {
+            onItemClicked(movie)
+        }) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Start
             ) {
-                Icon(imageVector = Icons.Default.AccountBox, contentDescription = "Movie image")
+                Surface(
+                    modifier = Modifier
+                        .padding(12.dp)
+                        .size(100.dp),
+                    shape = RectangleShape,
+                    elevation = 4.dp
+                ) {
+                    Icon(imageVector = Icons.Default.AccountBox, contentDescription = "Movie image")
+                }
+                Text(text = movie)
             }
-            Text(text = movie)
         }
-
     }
 }
 

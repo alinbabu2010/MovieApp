@@ -1,4 +1,4 @@
-package com.jetpack.movieapp.ui.screens.home
+package com.jetpack.movieapp.ui.screens
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*

@@ -7,7 +7,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.jetpack.movieapp.ui.screens.DetailsScreen
-import com.jetpack.movieapp.ui.screens.home.HomeScreen
+import com.jetpack.movieapp.ui.screens.HomeScreen
 
 
 const val NAV_ARG_MOVIE = "movie"

@@ -1,4 +1,4 @@
-package com.jetpack.movieapp.ui.activites
+package com.jetpack.movieapp.ui.activities
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

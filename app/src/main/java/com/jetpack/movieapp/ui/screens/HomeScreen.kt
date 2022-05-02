@@ -55,36 +55,3 @@ fun MainContent(navController: NavController, movieList: List<String> = moviesLi
         }
     }
 }
-
-
-@Composable
-fun MovieRow(movie: String, onItemClicked: (String) -> Unit) {
-    Card(
-        modifier = Modifier
-            .padding(4.dp)
-            .fillMaxWidth()
-            .height(130.dp),
-        shape = RoundedCornerShape(CornerSize(16.dp)),
-        elevation = 6.dp
-    ) {
-        Box(Modifier.clickable {
-            onItemClicked(movie)
-        }) {
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.Start
-            ) {
-                Surface(
-                    modifier = Modifier
-                        .padding(12.dp)
-                        .size(100.dp),
-                    shape = RectangleShape,
-                    elevation = 4.dp
-                ) {
-                    Icon(imageVector = Icons.Default.AccountBox, contentDescription = "Movie image")
-                }
-                Text(text = movie)
-            }
-        }
-    }
-}

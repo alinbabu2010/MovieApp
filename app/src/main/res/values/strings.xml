@@ -4,4 +4,8 @@
     <string name="movie_director">Director: %s</string>
     <string name="movie_rating">Rating: %s</string>
     <string name="movie_year">Released: %s</string>
+    <string name="movie_actors">Actors: %s</string>
+    <string name="movie_genre">Genre: %s</string>
+    <string name="down_arrow">Down Arrow</string>
+    <string name="movie_images">Movie Images</string>
 </resources>

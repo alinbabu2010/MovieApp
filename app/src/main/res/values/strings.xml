@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MovieApp</string>
+    <string name="poster_description">Movie Poster</string>
+    <string name="movie_director">Director: %s</string>
+    <string name="movie_rating">Rating: %s</string>
+    <string name="movie_year">Released: %s</string>
 </resources>

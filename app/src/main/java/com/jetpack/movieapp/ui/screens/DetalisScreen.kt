@@ -8,12 +8,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.jetpack.movieapp.R
+import com.jetpack.movieapp.models.getMovies
+import com.jetpack.movieapp.ui.widgets.HorizontalScrollableImageView
+import com.jetpack.movieapp.ui.widgets.MovieRow
 
 
 @Composable
-fun DetailsScreen(navController: NavController, movieData: String?) {
+fun DetailsScreen(navController: NavController, movieId: String?) {
+
+    val movie = getMovies(LocalContext.current).first { it.id == movieId }
 
     Scaffold(topBar = {
         TopAppBar(
@@ -28,7 +36,7 @@ fun DetailsScreen(navController: NavController, movieData: String?) {
                 }
                 Spacer(modifier = Modifier.width(100.dp))
                 Text(
-                    text = movieData.toString(),
+                    text = movie.title,
                     modifier = Modifier.align(Alignment.CenterVertically)
                 )
             }
@@ -38,10 +46,14 @@ fun DetailsScreen(navController: NavController, movieData: String?) {
     }) {
         Surface(modifier = Modifier.fillMaxSize()) {
             Column(
-                verticalArrangement = Arrangement.Center,
+                verticalArrangement = Arrangement.Top,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Text(text = movieData.toString(), style = MaterialTheme.typography.h5)
+                MovieRow(movie = movie)
+                Spacer(modifier = Modifier.height(8.dp))
+                Divider()
+                Text(text = stringResource(R.string.movie_images))
+                HorizontalScrollableImageView(movie.images)
             }
         }
 

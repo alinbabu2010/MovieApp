@@ -8,15 +8,12 @@ import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccountBox
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.rememberVectorPainter
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
@@ -26,8 +23,6 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil.compose.AsyncImage
-import coil.request.ImageRequest
 import com.jetpack.movieapp.R
 import com.jetpack.movieapp.models.Movie
 import com.jetpack.movieapp.models.getMovies
@@ -47,7 +42,6 @@ fun MovieRow(
         modifier = Modifier
             .padding(4.dp)
             .fillMaxWidth(),
-        //.height(130.dp),
         shape = RoundedCornerShape(CornerSize(16.dp)),
         elevation = 6.dp
     ) {
@@ -65,16 +59,7 @@ fun MovieRow(
                     shape = CircleShape,
                     elevation = 8.dp
                 ) {
-//                    Icon(imageVector = Icons.Default.AccountBox, contentDescription = "Movie image")
-                    AsyncImage(
-                        model = ImageRequest.Builder(LocalContext.current)
-                            .data(movie.images[0])
-                            .crossfade(true)
-                            .build(),
-                        placeholder = rememberVectorPainter(Icons.Default.AccountBox),
-                        contentDescription = stringResource(R.string.poster_description),
-                        contentScale = ContentScale.FillBounds
-                    )
+                    PosterImageLoader(movie.poster)
                 }
                 Column(Modifier.padding(4.dp)) {
                     Text(text = movie.title, style = MaterialTheme.typography.h5)
@@ -102,12 +87,28 @@ fun MovieRow(
                                     style = SpanStyle(
                                         color = Color.DarkGray,
                                         fontSize = 13.sp,
-                                        fontWeight = FontWeight.Bold
+                                        fontWeight = FontWeight.Light
                                     )
                                 ) {
                                     append(movie.plot)
                                 }
-                            })
+                            },
+                                modifier = Modifier.padding(6.dp)
+                            )
+
+                            Divider(modifier = Modifier.padding(3.dp))
+                            Text(
+                                text = stringResource(R.string.movie_actors, movie.actors),
+                                style = MaterialTheme.typography.caption
+                            )
+                            Text(
+                                text = stringResource(R.string.movie_genre, movie.genre),
+                                style = MaterialTheme.typography.caption
+                            )
+                            Text(
+                                text = stringResource(R.string.movie_rating, movie.rating),
+                                style = MaterialTheme.typography.caption
+                            )
                         }
                     }
                     Icon(

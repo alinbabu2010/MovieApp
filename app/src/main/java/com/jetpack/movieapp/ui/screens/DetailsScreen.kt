@@ -29,10 +29,11 @@ fun DetailsScreen(navController: NavController, movieId: String?) {
             elevation = 5.dp
         ) {
             Row(horizontalArrangement = Arrangement.Start) {
-                IconButton(onClick = {
-                    navController.popBackStack()
-                }) {
-                    Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "Back Arrow")
+                IconButton(onClick = { navController.popBackStack() }) {
+                    Icon(
+                        imageVector = Icons.Default.ArrowBack,
+                        contentDescription = stringResource(R.string.back_arrow)
+                    )
                 }
                 Spacer(modifier = Modifier.width(100.dp))
                 Text(

@@ -8,4 +8,5 @@
     <string name="movie_genre">Genre: %s</string>
     <string name="down_arrow">Down Arrow</string>
     <string name="movie_images">Movie Images</string>
+    <string name="back_arrow">Back Arrow</string>
 </resources>

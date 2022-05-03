@@ -10,7 +10,11 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -34,7 +38,7 @@ fun MovieRow(
     onItemClicked: (String) -> Unit = {}
 ) {
 
-    var expanded by remember {
+    var expanded by rememberSaveable {
         mutableStateOf(false)
     }
 
@@ -59,7 +63,7 @@ fun MovieRow(
                     shape = CircleShape,
                     elevation = 8.dp
                 ) {
-                    PosterImageLoader(movie.poster)
+                    PosterImageLoader(movie.images.first())
                 }
                 Column(Modifier.padding(4.dp)) {
                     Text(text = movie.title, style = MaterialTheme.typography.h5)
